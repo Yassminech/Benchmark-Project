@@ -1,7 +1,9 @@
 const asyncHandler = require("express-async-handler");
 const bcrypt = require("bcryptjs");
+const crypto = require('crypto');
 const {User, validateRegisterUser, validateLoginUser} = require("../models/User");
-const {VerificationToken} = require("../models/VerificationToken");
+const VerificationToken = require('../models/verificationToken');
+const { sendEmail } = require('../utils/sendEmail');
 const jwt = require('jsonwebtoken');
 const nodemailer = require('nodemailer');
 
@@ -36,8 +38,9 @@ const nodemailer = require('nodemailer');
         password: hashedPasword, 
     });
     await user.save();
+    //return res.status(200).json(user);
 
-     // Creating new VerificationToken & save it toDB
+     //Creating new VerificationToken & save it toDB
        const verifictionToken = new VerificationToken({
         userId: user._id,
         token: crypto.randomBytes(32).toString("hex"),
@@ -50,8 +53,10 @@ const nodemailer = require('nodemailer');
       // Putting the link into an html template
     const htmlTemplate = `
      <div>
-        <p>Click on the link below to verify your email</p>
-        <a href="${link}">Verify</a>
+       <h2>Hello in our Team, Verify Your Email</h2>
+       <p>Thank you for registering! Please click the button below to verify your email address.</p>
+       <a href="${link}">Verify Email</a>
+       <p>If you did not request this email, please ignore it.</p>
       </div>`;
 
       // Sending email to the user
@@ -61,6 +66,7 @@ const nodemailer = require('nodemailer');
        res.status(201).json({
         message: "We sent to you an email, please verify your email address",
       });
+
   });
 
 
@@ -90,31 +96,39 @@ const nodemailer = require('nodemailer');
 
     //@TODO -sending email(verify account if not verified)
     if (!user.isAccountVerified) {
-        let verificationToken = await VerificationToken.findOne({
+      let verificationToken = await VerificationToken.findOne({
+        userId: user._id,
+      });
+  
+      if (!verificationToken) {
+        verificationToken = new VerificationToken({
           userId: user._id,
+          token: crypto.randomBytes(32).toString("hex"),
         });
-        if (!verificationToken) {
-          verificationToken = new VerificationToken({
-            userId: user._id,
-            token: crypto.randomBytes(32).toString("hex"),
+        await verificationToken.save();
+      }
+  
+      const link = `${process.env.CLIENT_DOMAIN}/users/${user._id}/verify/${verificationToken.token}`;
+      const htmlTemplate = `
+      <div>
+       <h2>Hello in our Team, Verify Your Email</h2>
+       <p>Thank you for registering! Please click the button below to verify your email address.</p>
+       <a href="${link}">Verify Email</a>
+       <p>If you did not request this email, please ignore it.</p>
+      </div>`;
+  
+      try {
+          await sendEmail(user.email, "Verify Your Email", null, htmlTemplate);
+          return res.status(200).json({
+            message: "We sent you an email, please verify your email address",
           });
-          await verificationToken.save();
-        }
-        const link = `${process.env.CLIENT_DOMAIN}/users/${user._id}/verify/${verificationToken.token}`;
-        const htmlTemplate = `
-        <div>
-          <p>Click on the link below to verify your email</p>
-          <a href="${link}">Verify</a>
-        </div>`;
+      } catch (error) {
+          return res.status(500).json({
+            message: "Failed to send verification email",
+          });
+      }
+  }
     
-        await sendEmail(user.email, "Verify Your Email", htmlTemplate);
-    
-        return res.status(400).json({
-          message: "We sent to you an email, please verify your email address",
-        });
-
-    
-    }
     
     //genrate token (jwt)-new token
     const token= user.generateAuthToken();

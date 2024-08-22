@@ -1,0 +1,17 @@
+.footer {
+    background-color: #222; /* Couleur de fond sombre */
+    color: #fff; /* Couleur du texte blanc */
+    text-align: center; /* Texte centré */
+    padding: 15px 0; /* Réduction du padding pour un footer plus petit */
+    font-family: 'Roboto', sans-serif; /* Police personnalisée */
+    font-size: 0.9rem; /* Taille de police légèrement réduite */
+    position: relative; /* Positionnement relatif pour des ajustements futurs */
+    bottom: 0; /* Coller au bas */
+    width: 100%; /* Largeur complète */
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5); /* Ombre subtile pour la profondeur */
+}
+
+.footer p {
+    margin: 0; /* Supprimer les marges internes du texte */
+    line-height: 1.5; /* Espacement des lignes pour une meilleure lisibilité */
+}

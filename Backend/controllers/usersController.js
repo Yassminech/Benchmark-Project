@@ -97,7 +97,7 @@ const bcrypt = require("bcryptjs");
  * @method  PUT
  * @access  private (only admin)
  ------------------------------------------------*/
- exports.desactivateUser = async (req, res) => {
+ module.exports.desactivateUser = async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
       if (!user) {
@@ -114,6 +114,19 @@ const bcrypt = require("bcryptjs");
   }
 };
 
+
+// Contrôleur pour obtenir les informations de l'utilisateur connecté
+module.exports.getConnectedUserProfile = async (req, res) => {
+  try {
+      const user = await User.findById(req.user.id);
+      if (!user) {
+          return res.status(404).json({ message: "User not found" });
+      }
+      res.json(user);
+  } catch (err) {
+      res.status(500).json({ message: "Server error" });
+  }
+};
 
 
   

@@ -3,6 +3,7 @@ import './solution.css';
 import solutionImage1 from '../../assets/solution1.png';
 import solutionImage2 from '../../assets/solution2.jpg';
 import benchmarkingImage from '../../assets/benchmarking.jpg';
+import satisfaction1 from '../../assets/satisfaction1.png';
 
 const Solutions = () => {
     return (
@@ -38,6 +39,16 @@ const Solutions = () => {
                         <h2 className="solution-title">Performance Analysis</h2>
                         <p className="solution-description">
                             Compare your social media performance against competitors and industry standards.
+                        </p>
+                    </div>
+                </div>
+
+                <div className="solution-item">
+                    <img src={satisfaction1} alt="Satisfaction" className="solution-image" />
+                    <div className="solution-details">
+                        <h2 className="solution-title">Customer Satisfaction Assessment</h2>
+                        <p className="solution-description">
+                        Identify new growth opportunities and develop strategies to enter new markets or segments.
                         </p>
                     </div>
                 </div>

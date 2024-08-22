@@ -1,9 +1,9 @@
 import './DashboardAdmin.css';
 import { useState } from 'react'
-
-import Header from './Header'
 import Sidebar from './Sidebar'
 import Home from './HomeDashboard'
+import HeaderAdmin from './HeaderAdmin';
+import UserTable from './UserTable'
 
 function DashboardAdmin() {
   const [openSidebarToggle, setOpenSidebarToggle] = useState(false)
@@ -14,11 +14,15 @@ function DashboardAdmin() {
 
   return (
     <div className='grid-container'>
-      <Header OpenSidebar={OpenSidebar}/>
+      <HeaderAdmin OpenSidebar={OpenSidebar}/>
       <Sidebar openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar}/>
       <Home />
+      <UserTable/>
     </div>
   )
 }
 
 export default DashboardAdmin
+
+
+

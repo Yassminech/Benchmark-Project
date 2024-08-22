@@ -1,8 +1,19 @@
-import React from 'react';
-import {  BsFillGrid3X3GapFill, BsPeopleFill, BsFillBellFill } from 'react-icons/bs';
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { BsFillGrid3X3GapFill, BsPeopleFill, BsFillBellFill } from 'react-icons/bs';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LineChart, Line } from 'recharts';
+import { getUsersCount } from '../../redux/apiCalls/ProfileApiCall';
 
-const HomeDashboard= () => {
+const HomeDashboard = () => {
+  const dispatch = useDispatch();
+  const { usersCount } = useSelector(state => state.profile);
+
+  // Appel à getUsersCount une seule fois après le rendu initial
+  useEffect(() => {
+    dispatch(getUsersCount());
+  }, [dispatch]); 
+
   const data = [
     { name: 'Page A', uv: 4000, pv: 2400, amt: 2400 },
     { name: 'Page B', uv: 3000, pv: 1398, amt: 2210 },
@@ -40,6 +51,20 @@ const HomeDashboard= () => {
             <BsFillBellFill className="card-icon" />
           </div>
           <h1>42</h1>
+        </div>
+        <div className="card">
+          <div className="card-inner">
+            <h3>Users</h3>
+            <div className="admin-card-count">{usersCount}</div>
+            <div className="admin-card-link-wrapper">
+              <Link to="/admin-dashboard/users-table" className="admin-card-link">
+                See all users
+              </Link>
+              <div className="admin-card-icon">
+                <i className="bi bi-person"></i>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 

@@ -1,34 +1,117 @@
+/* Global settings for the features section */
 .features {
-    padding: 80px 0;
-  }
-  
+  padding: 60px 20px; /* Enhanced padding for a spacious look */
+  background-color: #f9f9f9; /* Soft background color */
+  margin-top: 0; /* Ensure no gap between the Navbar and section */
+}
+
+/* Section title styling */
+.section-title {
+  font-size: 3.5rem; /* Larger font size for prominence */
+  color: #1a1a1a; /* Slightly lighter dark color for better contrast */
+  margin: 0 0 30px; /* Adjusted margins for a balanced spacing */
+  font-family: 'Montserrat', sans-serif; /* Use a more modern font */
+  letter-spacing: 2px; /* Increase spacing for a sleek look */
+  text-align: center;
+  text-transform: uppercase; /* Capitalize all letters for emphasis */
+  font-weight: bold; /* Make the title bold */
+}
+
+/* Grid container for features */
+.features-grid {
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+  gap: 30px; /* Increased gap for better spacing */
+  align-items: start; /* Align items at the start */
+}
+
+/* Individual feature item */
+.feature {
+  background-color: #ffffff; /* White background for each feature */
+  padding: 30px 20px; /* Padding for content spacing */
+  border-radius: 15px; /* Increased radius for smoother corners */
+  text-align: center;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Deeper initial shadow */
+  border: 1px solid #e0e0e0; /* Border for a more defined look */
+  position: relative; /* For positioning icons or other elements */
+  overflow: hidden;
+}
+
+.feature::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0,123,255,0.1) 0%, rgba(0,123,255,0.2) 100%);
+  z-index: -1;
+  transition: opacity 0.4s ease;
+  opacity: 0;
+}
+
+.feature:hover::before {
+  opacity: 1;
+}
+
+/* Hover effect for feature items */
+.feature:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+/* Feature icon styling */
+.feature-icon {
+  font-size: 4rem; /* Larger icon size */
+  color: #007bff; /* Use a bold color for icons */
+  margin-bottom: 20px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.feature:hover .feature-icon {
+  color: #0056b3; /* Darker shade on hover */
+  transform: rotate(360deg); /* Add rotation on hover */
+}
+
+/* Feature title styling */
+.feature-title {
+  font-size: 2rem; /* Larger font size for titles */
+  color: #333;
+  margin-bottom: 15px;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase; /* Capitalize all letters */
+  font-weight: 600;
+}
+
+/* Feature description styling */
+.feature-description {
+  font-size: 1.2rem; /* Slightly larger description text */
+  color: #666;
+  line-height: 1.8;
+  font-family: 'Open Sans', sans-serif;
+  margin-bottom: 0;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
   .section-title {
-    text-align: center;
-    font-size: 32px;
-    margin-bottom: 40px;
+    font-size: 3rem; /* Adjusted font size for smaller screens */
   }
-  
+
   .features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-gap: 40px;
+    grid-template-columns: 1fr; /* Single-column layout for smaller screens */
   }
-  
+
   .feature {
-    text-align: center;
+    padding: 20px;
   }
-  
-  .feature-icon {
-    font-size: 48px;
-    color: #007bff;
-    margin-bottom: 20px;
-  }
-  
+
   .feature-title {
-    font-size: 24px;
-    margin-bottom: 10px;
+    font-size: 1.8rem; /* Adjusted title size */
   }
-  
+
   .feature-description {
-    font-size: 18px;
+    font-size: 1rem; /* Adjusted description size */
   }
+}

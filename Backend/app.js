@@ -8,6 +8,12 @@ require("dotenv").config();
 //Connection To DB
 ConnectToDB();
 
+
+// Vérification des variables d'environnement
+console.log('Email:', process.env.APP_EMAIL_ADDRESS);
+console.log('Password:', process.env.APP_EMAIL_PASSWORD);
+
+
 //Init app
 const app = express ();
 

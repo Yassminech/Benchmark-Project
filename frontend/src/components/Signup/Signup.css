@@ -1,55 +1,178 @@
+/* Conteneur principal pour le formulaire d'inscription */
 .signup-container {
-  margin: auto;
-  margin-top: 200px;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.signup {
-  max-width: 400px;
+  margin: auto;
+  margin-top: 50px;
+  max-width: 600px;
+  margin-bottom: 50px;
   padding: 20px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 10px;
   background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
 }
 
+/* Titre de la page d'inscription */
 .signup h1 {
-  margin: 30px auto 20px;
+  margin: 30px auto 10px;
   text-align: center;
+  font-size: 2rem;
+  color: #333;
+  text-transform: uppercase;
+  animation: slideIn 0.5s ease-out;
 }
 
+/* Sous-titre de la page d'inscription */
+.signup h3 {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #555;
+}
+
+/* Formulaire */
 .signup form {
-  margin-top: 40px;
   display: flex;
   flex-direction: column;
   gap: 25px;
+  width: 100%;
+  padding: 20px;
+  position: relative;
 }
 
+/* Conteneur pour chaque champ d'entrée avec icône */
+.input-container {
+  position: relative;
+  width: 100%;
+}
+
+/* Input */
 .signup input[type="email"],
 .signup input[type="text"],
-.signup input[type="password"],
-.signup button[type="submit"] {
-  height: 50px;
+.signup input[type="password"] {
+  display: block;
   width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  height: 50px;
+  padding: 10px 20px 10px 150px; /* Augmente le padding gauche pour élargir les placeholders */
   font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box; /* Assurer que la largeur inclut padding et bordures */
+  transition: border-color 0.3s ease-in-out; /* Transition pour l'effet focus */
+  background-color: #fff;
+  font-family: 'Roboto', sans-serif; /* Police plus moderne */
 }
 
-.signup button[type="submit"] {
+/* Styles pour les icônes dans les inputs */
+.input-container .icon {
+  position: absolute;
+  left: 15px;
+  top: 30%;
+  transform: translateY(-50%);
+  color: #888;
+  font-size: 1.2rem;
+  pointer-events: none;
+}
+
+/* Icône pour afficher/masquer le mot de passe */
+.toggle-password {
+  position: absolute;
+  right: 15px;
+  top: 40%;
+  transform: translateY(-50%);
+  color: #888;
+  font-size: 1.2rem;
   cursor: pointer;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
 }
 
+/* Effet lors du focus sur les inputs */
+.signup input[type="email"]:focus,
+.signup input[type="text"]:focus,
+.signup input[type="password"]:focus {
+  border-color: #007bff;
+  outline: none;
+  background-color: #f0f8ff;
+}
+
+/* Bouton de soumission */
+.signup button[type="submit"] {
+  width: 100%;
+  height: 50px;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Effet lors du survol du bouton de soumission */
 .signup button[type="submit"]:hover {
   background-color: #0056b3;
 }
 
+/* Texte et lien */
 .signup p,
 .signup a {
   text-align: center;
+  color: #555;
+  font-size: 14px;
+  margin-top: 20px;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+/* Effet lors du survol des liens */
+.signup a:hover {
+  color: #007bff;
+  text-decoration: underline;
+}
+
+/* Style pour le texte "OR" */
+.divider {
+  text-align: center;
+  font-size: 16px;
+  color: #555;
+  margin: 20px 0;
+  position: relative;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 40%;
+  height: 1px;
+  background-color: #ccc;
+}
+
+.divider::before {
+  left: 0;
+}
+
+.divider::after {
+  right: 0;
+}
+
+/* Style pour le lien vers la page de connexion */
+.login-link {
+  display: block;
+  text-align: center;
+  font-size: 16px;
+  color: #007bff;
+  text-decoration: none;
+  margin-top: 10px;
+  transition: color 0.3s ease;
+}
+
+.login-link:hover {
+  color: #0056b3;
+  text-decoration: underline;
 }

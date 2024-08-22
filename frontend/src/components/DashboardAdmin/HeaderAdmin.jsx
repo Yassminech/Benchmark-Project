@@ -1,7 +1,7 @@
 import React from 'react';
 import { BsFillBellFill, BsFillEnvelopeFill, BsPersonCircle, BsSearch, BsJustify } from 'react-icons/bs';
 
-function Header({ OpenSidebar }) {
+function HeaderAdmin({ OpenSidebar }) {
   return (
     <header className='headerDashboard'>
       <div className='menu-icon'>
@@ -28,4 +28,4 @@ function Header({ OpenSidebar }) {
     </header>
   );
 }
-export default Header;
+export default HeaderAdmin;

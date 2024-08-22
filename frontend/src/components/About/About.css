@@ -1,0 +1,218 @@
+/* Overall container */
+.about-container {
+  max-width: 1200px; /* Maximum width for the container */
+  margin: 0 auto; /* Center the container */
+  padding: 20px; /* Padding around the container */
+  font-family: 'Arial', sans-serif; /* Font for the entire page */
+  line-height: 1.6; /* Line height for better readability */
+  background-color: #f7f7f7; /* Light grey background */
+  border-radius: 8px; /* Rounded corners for the container */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Header styles */
+.about-content h2 {
+  font-size: 2.5rem; /* Large font size for the header */
+  margin-bottom: 10px; /* Space below the header */
+  text-align: center; /* Center-align the header */
+  color: #2c3e50; /* Darker blue color for contrast */
+  position: relative; /* Position relative for the underline effect */
+}
+
+.about-content h2::after {
+  content: '';
+  width: 100px; /* Width of the underline */
+  height: 3px; /* Thickness of the underline */
+  background-color: #3498db; /* Underline color */
+  position: absolute; /* Position absolute to the header */
+  bottom: -5px; /* Position it below the text */
+  left: 50%; /* Center align */
+  transform: translateX(-50%); /* Adjust position for center */
+}
+
+.about-content p {
+  font-size: 1.2rem; /* Slightly larger font size for readability */
+  text-align: center; /* Center-align the paragraph */
+  color: #555; /* Gray color for the text */
+  max-width: 800px; /* Maximum width for the paragraph */
+  margin: 0 auto 20px auto; /* Center the paragraph */
+  transition: color 0.3s ease; /* Smooth transition on hover */
+}
+
+.about-content p:hover {
+  color: #2c3e50; /* Darker color on hover */
+}
+
+/* Section styles */
+.section {
+  margin-top: 40px; /* Space above each section */
+  padding: 20px; /* Padding around each section */
+  background-color: #fff; /* White background for sections */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+}
+
+.section h3 {
+  font-size: 2rem; /* Font size for section headers */
+  margin-bottom: 10px; /* Space below the section header */
+  color: #333; /* Darker color for the headers */
+  text-align: center; /* Center-align the section header */
+  position: relative; /* Position relative for decorative line */
+}
+
+.section h3::after {
+  content: '';
+  width: 60px; /* Width of the decorative line */
+  height: 3px; /* Thickness of the line */
+  background-color: #3498db; /* Line color */
+  position: absolute; /* Position it below the text */
+  bottom: -5px; /* Adjust position */
+  left: 50%; /* Center align */
+  transform: translateX(-50%); /* Adjust for center */
+}
+
+.section p {
+  text-align: center; /* Center-align section paragraphs */
+  max-width: 800px; /* Maximum width for section paragraphs */
+  margin: 0 auto; /* Center the paragraph */
+  font-size: 1.1rem; /* Slightly smaller font size */
+  color: #555; /* Gray color for the text */
+  transition: color 0.3s ease; /* Smooth transition on hover */
+}
+
+.section p:hover {
+  color: #2c3e50; /* Darker color on hover */
+}
+
+/* Values container */
+.values-container {
+  display: flex; /* Use flexbox for layout */
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  justify-content: center; /* Center items horizontally */
+  margin-top: 20px; /* Space above the values container */
+  gap: 20px; /* Space between items */
+}
+
+.value {
+  flex: 1 1 180px; /* Flex property for responsive layout */
+  margin: 10px; /* Margin around each value */
+  text-align: center; /* Center-align each value */
+  padding: 20px; /* Padding inside each value */
+  background-color: #fff; /* White background for each value */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+
+.value:hover {
+  transform: translateY(-5px); /* Lift on hover */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Deeper shadow on hover */
+}
+
+.value img {
+  width: 100px; /* Fixed width for the images */
+  height: auto; /* Maintain aspect ratio */
+  margin-bottom: 10px; /* Space below the image */
+  border-radius: 50%; /* Circular image */
+  transition: transform 0.3s ease; /* Smooth transition on hover */
+}
+
+.value:hover img {
+  transform: scale(1.1); /* Zoom effect on hover */
+}
+
+.value p {
+  font-size: 1.1rem; /* Slightly larger font size */
+  font-weight: bold; /* Bold font for emphasis */
+  color: #333; /* Darker color for text */
+}
+
+/* Services container */
+.services-container {
+  display: flex; /* Use flexbox for layout */
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  justify-content: center; /* Center items horizontally */
+  margin-top: 20px; /* Space above the services container */
+  gap: 20px; /* Space between items */
+}
+
+.service {
+  flex: 1 1 200px; /* Flex property for responsive layout */
+  margin: 10px; /* Margin around each service */
+  text-align: center; /* Center-align each service */
+  padding: 20px; /* Padding inside each service */
+  background-color: #fff; /* White background for each service */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+
+.service:hover {
+  transform: translateY(-5px); /* Lift on hover */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Deeper shadow on hover */
+}
+
+.service img {
+  width: 80px; /* Fixed width for the images */
+  height: auto; /* Maintain aspect ratio */
+  margin-bottom: 10px; /* Space below the image */
+  border-radius: 50%; /* Circular image */
+  transition: transform 0.3s ease; /* Smooth transition on hover */
+}
+
+.service:hover img {
+  transform: scale(1.1); /* Zoom effect on hover */
+}
+
+.service p {
+  font-size: 1.1rem; /* Slightly larger font size */
+  font-weight: bold; /* Bold font for emphasis */
+  color: #333; /* Darker color for text */
+}
+
+/* Clients container */
+.Client {
+  display: flex; /* Use flexbox for layout */
+  justify-content: center; /* Center-align items horizontally */
+  align-items: center; /* Center-align items vertically */
+  margin-top: 20px; /* Space above each client */
+  gap: 20px; /* Space between client images */
+}
+
+.Client img {
+  width: 150px; /* Fixed width for the images */
+  height: auto; /* Maintain aspect ratio */
+  margin: 10px; /* Margin around each client image */
+  border-radius: 50%; /* Circular image */
+  transition: transform 0.3s ease; /* Smooth transition on hover */
+  opacity: 0.8; /* Slight opacity for logos */
+}
+
+.Client img:hover {
+  transform: scale(1.1); /* Zoom effect on hover */
+  opacity: 1; /* Full opacity on hover */
+}
+
+@media (max-width: 768px) {
+  /* Adjustments for smaller screens */
+  .value, .service {
+    flex: 1 1 100%; /* Full-width for smaller screens */
+  }
+
+  .about-content h2 {
+    font-size: 2rem; /* Smaller font size for headers */
+  }
+
+  .section h3 {
+    font-size: 1.5rem; /* Smaller font size for section headers */
+  }
+
+  .about-content p, .section p {
+    font-size: 1rem; /* Smaller font size for paragraphs */
+  }
+
+  .values-container,
+  .services-container {
+    gap: 10px; /* Adjust gap for smaller screens */
+  }
+}

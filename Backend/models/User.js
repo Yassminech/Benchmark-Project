@@ -61,7 +61,7 @@ userSchema.methods.generateAuthToken = function (){
     return jwt.sign({  
         id: this._id,
         isAdmin : this.isAdmin, 
-        name: this.username, 
+        name: this.fullname, 
         email: this.email},
         process.env.JWT_SECRET, { expiresIn: '1h' });}
     catch (error) {
@@ -75,7 +75,7 @@ const User = mongoose.model("User", userSchema);
 // Validate Register User
 function validateRegisterUser(obj) {
     const schema = Joi.object({
-        username: Joi.string().trim().min(2).max(100).required(),
+        fullname: Joi.string().trim().min(2).max(100).required(),
         email: Joi.string().trim().min(5).max(100).required().email(),
         password: Joi.string().trim().min(8).required(),
         roles: Joi.string().valid('user').default('user'),

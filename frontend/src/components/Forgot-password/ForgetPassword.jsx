@@ -3,6 +3,7 @@ import './ForgetPassword.css';
 import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import { forgotPassword } from "../../redux/apiCalls/PasswordApiCall";
+import { FaEnvelope} from "react-icons/fa";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState('');
@@ -19,7 +20,7 @@ const ForgotPassword = () => {
 
   return (
       <form onSubmit={formSubmitHandler}>
-          <label>Email:</label>
+          <label><FaEnvelope className="icon" /> Email:</label>
           <input
               type="email"
               value={email}
