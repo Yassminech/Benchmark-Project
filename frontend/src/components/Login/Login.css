@@ -103,7 +103,7 @@
 .icon {
   position: absolute;
   left: 15px;
-  top: 50%;
+  top: 60%;
   transform: translateY(-30%);
   color: #888;
   font-size: 1.2rem;
@@ -113,7 +113,7 @@
 .toggle-password {
   position: absolute;
   right: 15px;
-  top: 50%;
+  top: 60%;
   transform: translateY(-30%);
   color: #888;
   font-size: 1.2rem;
